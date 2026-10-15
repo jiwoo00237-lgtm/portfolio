@@ -1,0 +1,312 @@
+
+/* =========================
+   1. 기본 색상 변수
+========================= */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --card-bg: #f9f9f9;
+}
+
+/* =========================
+   2. 전체 기본 설정
+========================= */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: sans-serif;
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* =========================
+   3. 상단 메뉴
+========================= */
+header {
+    padding: 20px 40px;
+    background-color: var(--bg-color);
+}
+
+.gnb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.gnb a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.gnb a:hover {
+    color: #888888;
+}
+
+/* =========================
+   4. Main 소개 영역
+========================= */
+.intro {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--card-bg);
+    padding: 40px 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: clamp(36px, 6vw, 72px);
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.hero-content p {
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+/* =========================
+   5. Who am I? 자기소개 영역
+========================= */
+.section-about {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    align-items: center;
+    column-gap: 60px;
+    row-gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+
+.section-about h2 {
+    grid-column: 1 / -1;
+    font-size: 32px;
+    margin: 0;
+}
+
+.about-text {
+    min-width: 0;
+    line-height: 2;
+    font-size: 16px;
+}
+
+.about-text p {
+    margin: 0;
+}
+
+.profile {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+}
+
+/* =========================
+   6. My Projects 영역
+========================= */
+.section-projects {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+
+.section-projects > h2 {
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+}
+
+/* 프로젝트 카드 */
+.project-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 15px 30px;
+    align-items: center;
+
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 30px;
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* 마우스를 올렸을 때 */
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 프로젝트 사진 3장 */
+.project-photo {
+    grid-column: 1;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    justify-self: center;
+}
+
+/* 프로젝트 설명 */
+.project-text {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    min-width: 0;
+    line-height: 1.9;
+}
+
+.project-text h3 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.project-text p {
+    margin-bottom: 18px;
+}
+
+/* =========================
+   7. 하단 Footer
+========================= */
+footer {
+    padding: 30px 20px;
+    text-align: center;
+    background-color: var(--card-bg);
+    font-size: 14px;
+}
+
+/* =========================
+   8. 다크 모드
+========================= */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --text-color: #f1f1f1;
+        --card-bg: #1e1e1e;
+    }
+}
+
+/* =========================
+   9. 모바일 반응형
+========================= */
+@media (max-width: 768px) {
+
+    header {
+        padding: 20px;
+    }
+
+    .gnb {
+        gap: 20px;
+    }
+
+    .gnb a {
+        font-size: 14px;
+    }
+
+    .intro {
+        min-height: 100vh;
+        padding: 40px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+    }
+
+    /* 자기소개 세로 정렬 */
+    .section-about {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 50px 20px;
+    }
+
+    .section-about h2 {
+        grid-column: 1;
+    }
+
+    .about-text {
+        width: 100%;
+    }
+
+    .profile {
+        width: 250px;
+        max-width: 100%;
+        justify-self: center;
+    }
+
+    /* 프로젝트 세로 정렬 */
+    .section-projects {
+        padding: 50px 20px;
+    }
+
+    .project-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .project-photo {
+        grid-column: 1;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .project-text {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .project-text h3 {
+        font-size: 22px;
+    }
+}
+
+/* 움직임 최소화 설정을 사용하는 경우 */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .project-card,
+    .gnb a {
+        transition: none;
+    }
+
+    .project-card:hover {
+        transform: none;
+    }
+}
